@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FriendFinder</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container form-container">
+      <h2>Survey Questions</h2>
+      <hr>
+      <h3>About You</h3>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required placeholder="Required">
+        </div>
+        <div class="form-group">
+          <label for="link">Profile Image (Link)</label>
+          <input type="text" class="form-control" id="link" required placeholder="Required">
+        </div>
+        <hr>
+        <div class="question-container"></div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Submit</button>
+      </form>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#match">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="match" tabindex="-1" role="dialog" aria-labelledby="modal-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+            <h4 class="modal-title" id="modal-label"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>FriendFinder Match</h4>
+          </div>
+          <div class="modal-body">
+            Name: <br>
+            Image:
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <hr>
+        <p><a href="/api/friends">API Friends List</a> | <a href="#">GitHub Repo</a></p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+    <script>
+      createQuestions();
+    </script>
+  </body>
+</html>

@@ -2,26 +2,63 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.jt-container {
+.btn {
+  font-size: 18px;
+  margin-top: 25px;
+  padding: 10px 20px;
+}
+
+.jumbo-container, .form-container, footer {
   margin-top: 50px;
 }
 
-.jt-container p {
+.jumbo-container {
+  padding: 0;
+}
+
+footer {
+  margin-bottom: 50px;
+}
+
+.jumbo-container p {
   font-size: 24px;
   font-weight: 500;
 }
 
-.jt-container .btn {
-  margin-top: 25px;
-  padding: 16px 12px;
-}
-
-.jt-container .glyphicon {
+.jumbo-container .glyphicon {
   font-size: 48px;
   margin-right: 16px;
 }
 
-.jt-container a .glyphicon {
+.jumbo-container a .glyphicon,
+.btn .glyphicon {
   font-size: 16px;
+  margin-right: 8px;
+}
+
+.form-container {
+  padding: 48px;
+  background-color: #eee;
+  border-radius: 6px;
+}
+
+.form-container h2 {
+  margin-top: 0px
+}
+
+.form-container label {
+  font-size: 16px;
+}
+
+.question-container select {
+  width: 180px;
+}
+
+.modal-title {
+  font-size: 24px;
+}
+
+.modal-title .glyphicon {
+  font-size: 20px;
   margin-right: 8px;
 }
