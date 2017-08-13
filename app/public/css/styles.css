@@ -1,0 +1,27 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.jt-container {
+  margin-top: 50px;
+}
+
+.jt-container p {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.jt-container .btn {
+  margin-top: 25px;
+  padding: 16px 12px;
+}
+
+.jt-container .glyphicon {
+  font-size: 48px;
+  margin-right: 16px;
+}
+
+.jt-container a .glyphicon {
+  font-size: 16px;
+  margin-right: 8px;
+}
