@@ -1,6 +1,11 @@
 /*jslint esversion: 6, browser: true*/
+const $quesCont = $('.question-container');
+const $surveyForm = $('#survey-form');
+const $submitBtn = $('#submit');
+const $nameInput = $('#name');
+const $linkInput = $('#link');
+
 // Array of survey questions
-const quesCont = $('.question-container');
 let questions = [
   'Your mind is always buzzing with unexplored ideas and plans.',
   'Generally speaking, you rely more on your experience than your imagination.',
@@ -21,8 +26,8 @@ let createQuestions = function () {
     `<h3>Question ${i + 1}</h3>
     <div class="form-group">
       <label for="q${i + 1}">${q}</label>
-      <select class="form-control" id="q${i + 1}" required>
-        <option disabled selected>Select an option</option>
+      <select class="form-control questions" id="q${i + 1}" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="1">1 (Strongly disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -30,6 +35,29 @@ let createQuestions = function () {
         <option value="5">5 (Strongly agree)</option>
       </select><br/>
     </div>`;
-    $(quesCont).append(html);
+    $($quesCont).append(html);
   });
 };
+
+$surveyForm.submit(function (e) {
+  e.preventDefault();
+
+  const $quesClass = $('.questions');
+  let answers = [];
+  $quesClass.each(function(i){
+    answers.push($('#q' + (i + 1)).val());
+  });
+
+  var newFriend = {
+    name: $nameInput.val().trim(),
+    photo: $linkInput.val().trim(),
+    scores: answers,
+  };
+  console.log(newFriend);
+  let currentURL = window.location.origin;
+  let apiPath = '/api/friends';
+
+  $.post(currentURL + apiPath, newFriend, function (data) {
+    $surveyForm[0].reset();
+  });
+});
