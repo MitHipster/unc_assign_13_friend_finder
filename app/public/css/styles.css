@@ -62,3 +62,25 @@ footer {
   font-size: 20px;
   margin-right: 8px;
 }
+
+.modal-body {
+  /*margin: 32px;*/
+  background-color: #eee;
+}
+
+#modal-name {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#modal-photo {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  margin: 25px auto;
+}
+
+.modal-footer .btn {
+  margin-top: 0;
+}

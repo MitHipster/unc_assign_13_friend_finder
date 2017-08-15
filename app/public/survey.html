@@ -28,13 +28,9 @@
         <button type="submit" id="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Submit</button>
       </form>
     </div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#match">
-      Launch demo modal
-    </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="match" tabindex="-1" role="dialog" aria-labelledby="modal-label">
+    <div class="modal fade" id="modal-match" tabindex="-1" role="dialog" aria-labelledby="modal-label">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -42,8 +38,8 @@
             <h4 class="modal-title" id="modal-label"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>FriendFinder Match</h4>
           </div>
           <div class="modal-body">
-            Name: <br>
-            Image:
+            <p id="modal-name"></p>
+            <img id="modal-photo" src="" alt="profile image">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>Close</button>

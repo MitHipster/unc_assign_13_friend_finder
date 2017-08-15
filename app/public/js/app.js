@@ -4,6 +4,9 @@ const $surveyForm = $('#survey-form');
 const $submitBtn = $('#submit');
 const $nameInput = $('#name');
 const $linkInput = $('#link');
+const $modal = $('#modal-match');
+const $nameModal = $('#modal-name');
+const $photoModal = $('#modal-photo');
 
 // Array of survey questions
 let questions = [
@@ -53,7 +56,6 @@ $surveyForm.submit(function (e) {
     photo: $linkInput.val().trim(),
     scores: answers,
   };
-  console.log(newFriend);
   let currentURL = window.location.origin;
   let apiPath = '/api/friends';
 
@@ -62,7 +64,10 @@ $surveyForm.submit(function (e) {
     url: currentURL + apiPath,
     data: JSON.stringify(newFriend),
     contentType: 'application/json',
-  }).done(function () {
+  }).done(function (data) {
     $surveyForm[0].reset();
+    $nameModal.text(data.name);
+    $photoModal.attr('src', data.photo);
+    $modal.modal('show');
   });
 });
