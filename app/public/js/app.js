@@ -57,7 +57,12 @@ $surveyForm.submit(function (e) {
   let currentURL = window.location.origin;
   let apiPath = '/api/friends';
 
-  $.post(currentURL + apiPath, newFriend, function (data) {
+  $.ajax({
+    type: 'POST',
+    url: currentURL + apiPath,
+    data: JSON.stringify(newFriend),
+    contentType: 'application/json',
+  }).done(function () {
     $surveyForm[0].reset();
   });
 });
