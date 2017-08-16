@@ -1,9 +1,11 @@
 /*jslint esversion: 6, browser: true*/
 const $quesCont = $('.question-container');
+// Form variables
 const $surveyForm = $('#survey-form');
 const $submitBtn = $('#submit');
 const $nameInput = $('#name');
 const $linkInput = $('#link');
+// Modal variables
 const $modal = $('#modal-match');
 const $nameModal = $('#modal-name');
 const $photoModal = $('#modal-photo');
@@ -42,30 +44,36 @@ let createQuestions = function () {
   });
 };
 
+// Form submit event fires only after HTML5 validation
 $surveyForm.submit(function (e) {
+  // Prevent page from reloading
   e.preventDefault();
-
+  // Collection of select inputs
   const $quesClass = $('.questions');
+  // Loop to populate answers array
   let answers = [];
   $quesClass.each(function(i){
     answers.push($('#q' + (i + 1)).val());
   });
-
+  // Create new friend array
   var newFriend = {
     name: $nameInput.val().trim(),
     photo: $linkInput.val().trim(),
     scores: answers,
   };
+  // Set path and route
   let currentURL = window.location.origin;
   let apiPath = '/api/friends';
-
+  // AJAX post request to add new friend to friends array
   $.ajax({
     type: 'POST',
     url: currentURL + apiPath,
     data: JSON.stringify(newFriend),
     contentType: 'application/json',
   }).done(function (data) {
+    // Clear form for new entry
     $surveyForm[0].reset();
+    // Add name and photo to modal and show modal
     $nameModal.text(data.name);
     $photoModal.attr('src', data.photo);
     $modal.modal('show');
