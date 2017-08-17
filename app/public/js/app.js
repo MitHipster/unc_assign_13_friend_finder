@@ -64,15 +64,11 @@ $surveyForm.submit(function (e) {
   // Set path and route
   let currentURL = window.location.origin;
   let apiPath = '/api/friends';
+
   // AJAX post request to add new friend to friends array
-  $.ajax({
-    type: 'POST',
-    url: currentURL + apiPath,
-    data: JSON.stringify(newFriend),
-    contentType: 'application/json',
-  }).done(function (data) {
+  $.post(currentURL + apiPath, newFriend, function (data) {
     // Clear form for new entry
-    $surveyForm[0].reset();
+  	$surveyForm[0].reset();
     // Add name and photo to modal and show modal
     $nameModal.text(data.name);
     $photoModal.attr('src', data.photo);

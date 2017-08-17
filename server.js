@@ -8,11 +8,11 @@ var PORT = process.env.PORT || 3000;
 // Needed to serve static files to the browser (i.e. client-side js, css, etc.)
 app.use(express.static(path.join(__dirname, './app/public')));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
+// Sets up express app to handle data parsing and allows for AJAX shorthand methods
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Require route functions and pass express app a parameter
 require('./app/routing/apiRoutes.js')(app);
